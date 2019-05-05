@@ -1,3 +1,5 @@
+// Version 1.0 - Endpoints for changing the response time
+
 package main
 
 import (
@@ -7,7 +9,7 @@ import (
 	"regexp"
 	"strconv"
 	"time"
-
+	
 	"github.com/go-chi/chi"
 	"github.com/go-chi/chi/middleware"
 )
