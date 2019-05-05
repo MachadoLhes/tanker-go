@@ -1,4 +1,4 @@
-// Version 1.0 - Endpoints for changing the response time
+// Version 2.0 - Endpoints for changing the response type between Product, Offer and Stallments
 
 package main
 
@@ -18,10 +18,10 @@ var router *chi.Mux
 
 func routers() *chi.Mux {
 
-	router.Get("/100ms", Get100ms)
-	router.Get("/500ms", Get500ms)
-	router.Get("/2s", Get2sec)
-	router.Get("/30s", Get30sec)
+	router.Get("/product", GetProduct)
+	router.Get("/productList", GetProductList)
+	router.Get("/offer", GetOffer)
+	router.Get("/stallments", GetStallment)
 	router.Get("/random", DefaultRandomTime)
 	router.Route("/custom", func(r chi.Router) {
 		r.Route("/{sleepTime}", func(r chi.Router) {

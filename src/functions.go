@@ -7,28 +7,52 @@ import (
 	"time"
 )
 
-// Get100ms - wait 100ms and then returns a json response
-func Get100ms(w http.ResponseWriter, r *http.Request) {
-	time.Sleep(100 * time.Millisecond)
+// GetProduct - returns a product json response
+func GetProduct(w http.ResponseWriter, r *http.Request) {
+	responseTimeStr := r.URL.Query().Get("responseTime")
+	if responseTimeStr != "" {
+		responseTime, _ := strconv.ParseInt(responseTimeStr, 10, 64)
+		time.Sleep(time.Duration(responseTime) * time.Millisecond)
+	} else {
+		time.Sleep(time.Duration(rand.Int63n(1000)) * time.Millisecond)
+	}
 	RespondWithJSON(w, 200, ProductBody())
 }
 
-// Get500ms - wait 500ms and then returns a json response
-func Get500ms(w http.ResponseWriter, r *http.Request) {
-	time.Sleep(500 * time.Millisecond)
+// GetProductList - returns a list of products json response
+func GetProductList(w http.ResponseWriter, r *http.Request) {
+	responseTimeStr := r.URL.Query().Get("responseTime")
+	if responseTimeStr != "" {
+		responseTime, _ := strconv.ParseInt(responseTimeStr, 10, 64)
+		time.Sleep(time.Duration(responseTime) * time.Millisecond)
+	} else {
+		time.Sleep(time.Duration(rand.Int63n(1000)) * time.Millisecond)
+	}
 	RespondWithJSON(w, 200, MultiProductBody())
 }
 
-// Get2sec - wait 2s and then returns a json response
-func Get2sec(w http.ResponseWriter, r *http.Request) {
-	time.Sleep(2 * time.Second)
-	RespondWithJSON(w, 200, ProductBody())
+// GetOffer - returns an offer json response
+func GetOffer(w http.ResponseWriter, r *http.Request) {
+	responseTimeStr := r.URL.Query().Get("responseTime")
+	if responseTimeStr != "" {
+		responseTime, _ := strconv.ParseInt(responseTimeStr, 10, 64)
+		time.Sleep(time.Duration(responseTime) * time.Millisecond)
+	} else {
+		time.Sleep(time.Duration(rand.Int63n(1000)) * time.Millisecond)
+	}
+	RespondWithJSON(w, 200, OfferBody())
 }
 
-// Get30sec - wait 30s and then returns a json response
-func Get30sec(w http.ResponseWriter, r *http.Request) {
-	time.Sleep(30 * time.Second)
-	RespondWithJSON(w, 200, ProductBody())
+// GetStallment - returns a stallment json response
+func GetStallment(w http.ResponseWriter, r *http.Request) {
+	responseTimeStr := r.URL.Query().Get("responseTime")
+	if responseTimeStr != "" {
+		responseTime, _ := strconv.ParseInt(responseTimeStr, 10, 64)
+		time.Sleep(time.Duration(responseTime) * time.Millisecond)
+	} else {
+		time.Sleep(time.Duration(rand.Int63n(1000)) * time.Millisecond)
+	}
+	RespondWithJSON(w, 200, StallmentBody())
 }
 
 // DefaultRandomTime - wait for a random period of time, from 0ms to 5sec and respond
