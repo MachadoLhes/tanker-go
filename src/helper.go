@@ -75,3 +75,37 @@ func Logger() http.Handler {
 		router.ServeHTTP(w, r)
 	})
 }
+
+// ResponseTimeWaiter - checks for a 'responseTime' query param and wait if necessary
+func ResponseTimeWaiter(r *http.Request) {
+	responseTimeStr := r.URL.Query().Get("responseTime")
+	if responseTimeStr != "" {
+		responseTime, _ := strconv.ParseInt(responseTimeStr, 10, 64)
+		time.Sleep(time.Duration(responseTime) * time.Millisecond)
+	} else {
+		randResponseTime(r)
+	}
+}
+
+func randResponseTime(r *http.Request) {
+	defaultMin := 100
+	defaultMax := 3000
+	minTimeStr := r.URL.Query().Get("minTime")
+	maxTimeStr := r.URL.Query().Get("maxTime")
+	minTime, _ := strconv.ParseInt(minTimeStr, 10, 64)
+	maxTime, _ := strconv.ParseInt(maxTimeStr, 10, 64)
+
+	if minTime == 0 && maxTime == 0 {
+		sleepTime := rand.Intn(defaultMax-defaultMin) + defaultMin
+		time.Sleep(time.Duration(sleepTime) * time.Millisecond)
+	} else if minTime != 0 && maxTime != 0 {
+		sleepTime := rand.Int63n(maxTime-minTime+1) + minTime
+		time.Sleep(time.Duration(sleepTime) * time.Millisecond)
+	} else if minTime != 0 {
+		sleepTime := rand.Int63n(int64(defaultMax)-minTime+1) + minTime
+		time.Sleep(time.Duration(sleepTime) * time.Millisecond)
+	} else if maxTime != 0 {
+		sleepTime := rand.Int63n(maxTime-int64(defaultMin)+1) + int64(defaultMin)
+		time.Sleep(time.Duration(sleepTime) * time.Millisecond)
+	}
+}
