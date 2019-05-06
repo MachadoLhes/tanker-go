@@ -1,6 +1,6 @@
 # Tanker-Go
 
-Tanker is an API developed for being a resource for load testing [restQL](http://restql.b2w.io). The raison d'être of this project is creating a fast API *(and that's why I've chosen **Golang**)* that returns a simple JSON object, based on what we use in production at [B2W Digital](https://github.com/B2W-BIT/).
+Tanker is an API developed for being a resource for load testing [restQL](http://restql.b2w.io). The raison d'être of this project is creating a fast API that returns a simple JSON object.
 
 ## Endpoints
 
@@ -9,7 +9,7 @@ Each endpoint in `Tanker-Go` corresponds to a different type of respose:
 - `/product` - returns a JSON object with a name and an id
 - `/multiProduct` - returns a list of products as JSON objects
 - `/offer` - returns a JSON object with a price and an id
-- `/stallment` - - returns a JSON object with a number of stallments
+- `/installment` - - returns a JSON object with a number of stallments
 
 ## Changing the response time
 
