@@ -9,7 +9,7 @@ Each endpoint in `Tanker-Go` corresponds to a different type of respose:
 - `/product` - returns a JSON object with a name and an id
 - `/multiProduct` - returns a list of products as JSON objects
 - `/offer` - returns a JSON object with a price and an id
-- `/installment` - - returns a JSON object with a number of stallments
+- `/installment` - - returns a JSON object with a number of installments
 
 ## Changing the response time
 

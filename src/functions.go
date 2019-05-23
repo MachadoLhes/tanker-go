@@ -22,8 +22,8 @@ func GetOffer(w http.ResponseWriter, r *http.Request) {
 	RespondWithJSON(w, 200, OfferBody())
 }
 
-// GetStallment - returns a stallment json response
-func GetStallment(w http.ResponseWriter, r *http.Request) {
+// GetInstallment - returns a installment json response
+func GetInstallment(w http.ResponseWriter, r *http.Request) {
 	ResponseTimeWaiter(r)
-	RespondWithJSON(w, 200, StallmentBody())
+	RespondWithJSON(w, 200, InstallmentBody())
 }

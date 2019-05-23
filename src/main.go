@@ -1,4 +1,4 @@
-// Version 2.0 - Endpoints for changing the response type between Product, Offer and Stallments
+// Version 2.0 - Endpoints for changing the response type between Product, Offer and Installments
 
 package main
 
@@ -18,7 +18,7 @@ func routers() *chi.Mux {
 	router.Get("/product", GetProduct)
 	router.Get("/multiProducts", GetMultiProducts)
 	router.Get("/offer", GetOffer)
-	router.Get("/stallments", GetStallment)
+	router.Get("/installments", GetInstallment)
 
 	return router
 }

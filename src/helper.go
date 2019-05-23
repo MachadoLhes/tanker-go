@@ -51,12 +51,12 @@ func OfferBody() map[string]string {
 		"price": strconv.FormatFloat(price, 'f', 2, 64)}
 }
 
-// StallmentBody - returns basic stallment body
-func StallmentBody() map[string]string {
-	stallments := rand.Int63n(12)
+// InstallmentBody - returns basic installment body
+func InstallmentBody() map[string]string {
+	installments := rand.Int63n(12)
 
 	return map[string]string{
-		"stallments": strconv.FormatInt(stallments, 10)}
+		"installments": strconv.FormatInt(installments, 10)}
 }
 
 // RespondWithJSON - returns a json response
