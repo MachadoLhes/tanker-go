@@ -19,6 +19,7 @@ func routers() *chi.Mux {
 	router.Get("/multiProducts", GetMultiProducts)
 	router.Get("/offer", GetOffer)
 	router.Get("/installments", GetInstallment)
+	router.Get("/resource-status", HealthCheck)
 
 	return router
 }

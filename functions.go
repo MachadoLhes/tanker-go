@@ -27,3 +27,8 @@ func GetInstallment(w http.ResponseWriter, r *http.Request) {
 	ResponseTimeWaiter(r)
 	RespondWithJSON(w, 200, InstallmentBody())
 }
+
+// HealthCheck - returns 204 status code
+func HealthCheck(w http.ResponseWriter, r *http.Request) {
+	w.WriteHeader(204)
+}
