@@ -31,10 +31,10 @@ func ProductBody() map[string]string {
 }
 
 // MultiProductBody - returns 100 product bodies
-func MultiProductBody() [100]map[string]string {
-	var ret [100]map[string]string
+func MultiProductBody() [10]map[string]string {
+	var ret [10]map[string]string
 
-	for x := 0; x < 100; x++ {
+	for x := 0; x < 10; x++ {
 		ret[x] = ProductBody()
 	}
 
